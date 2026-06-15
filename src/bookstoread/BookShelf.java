@@ -14,13 +14,17 @@ public class BookShelf {
         return Collections.unmodifiableList(books);
     }
 
-
+    //Methode d'ajout des livres
     public void add(Book...bookToAdd) {
         books.addAll(List.of(bookToAdd));
     }
 
+    //Methode de tri des livres
     public List<Book> arrange() {
-        books.stream().sorted().collect(Collectors.toList());
-        return books;
+        return books.stream().sorted().collect(Collectors.toList());
+    }
+
+    public List<Book> arrange(Comparator<Book> criteria) {
+        return books.stream().sorted(criteria).collect(Collectors.toList());
     }
 }
